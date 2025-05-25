@@ -33,6 +33,9 @@ namespace KutuphaneP.Forms.Controls
             }
         }
 
+        private void flowLayoutPanelMyBooks_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
     }
 }

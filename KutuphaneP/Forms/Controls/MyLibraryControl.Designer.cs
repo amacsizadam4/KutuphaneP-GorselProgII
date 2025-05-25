@@ -36,17 +36,20 @@
             this.flowLayoutPanelMyBooks.AutoScroll = true;
             this.flowLayoutPanelMyBooks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelMyBooks.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelMyBooks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.flowLayoutPanelMyBooks.Name = "flowLayoutPanelMyBooks";
-            this.flowLayoutPanelMyBooks.Size = new System.Drawing.Size(1040, 468);
+            this.flowLayoutPanelMyBooks.Size = new System.Drawing.Size(780, 380);
             this.flowLayoutPanelMyBooks.TabIndex = 0;
+            this.flowLayoutPanelMyBooks.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelMyBooks_Paint);
             // 
             // MyLibraryControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanelMyBooks);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MyLibraryControl";
-            this.Size = new System.Drawing.Size(1040, 468);
+            this.Size = new System.Drawing.Size(780, 380);
             this.ResumeLayout(false);
 
         }

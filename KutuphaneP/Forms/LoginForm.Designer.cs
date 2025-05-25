@@ -35,53 +35,50 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.closeApp = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(233, 122);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(144, 94);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 16);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Kullanıcı Adı";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(212, 142);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsername.Location = new System.Drawing.Point(128, 110);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(132, 22);
+            this.txtUsername.Size = new System.Drawing.Size(100, 20);
             this.txtUsername.TabIndex = 2;
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(255, 190);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(160, 149);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 16);
+            this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Şifre";
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(212, 209);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPassword.Location = new System.Drawing.Point(128, 165);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(132, 22);
+            this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 2;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.txtPassword_TextChanged);
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(196, 257);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogin.Location = new System.Drawing.Point(116, 204);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(165, 46);
+            this.btnLogin.Size = new System.Drawing.Size(124, 37);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Giriş Yap";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -89,10 +86,9 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(212, 318);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegister.Location = new System.Drawing.Point(128, 253);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(133, 38);
+            this.btnRegister.Size = new System.Drawing.Size(100, 31);
             this.btnRegister.TabIndex = 3;
             this.btnRegister.Text = "Kayıt Ol";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -100,20 +96,34 @@
             // 
             // closeApp
             // 
-            this.closeApp.Location = new System.Drawing.Point(211, 364);
-            this.closeApp.Margin = new System.Windows.Forms.Padding(4);
+            this.closeApp.Location = new System.Drawing.Point(127, 291);
             this.closeApp.Name = "closeApp";
-            this.closeApp.Size = new System.Drawing.Size(133, 38);
+            this.closeApp.Size = new System.Drawing.Size(100, 31);
             this.closeApp.TabIndex = 4;
             this.closeApp.Text = "Uygulama Kapat";
             this.closeApp.UseVisualStyleBackColor = true;
             this.closeApp.Click += new System.EventHandler(this.closeApp_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Image = global::KutuphaneP.Properties.Resources.gelisim;
+            this.pictureBox1.InitialImage = global::KutuphaneP.Properties.Resources.sampleCover;
+            this.pictureBox1.Location = new System.Drawing.Point(361, -1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(551, 413);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 506);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(910, 410);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.closeApp);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
@@ -122,12 +132,12 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -142,5 +152,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnRegister;
         private System.Windows.Forms.Button closeApp;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
