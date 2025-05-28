@@ -51,7 +51,7 @@
             // 
             // btnAllBooks
             // 
-            this.btnAllBooks.Location = new System.Drawing.Point(200, 92);
+            this.btnAllBooks.Location = new System.Drawing.Point(384, 92);
             this.btnAllBooks.Margin = new System.Windows.Forms.Padding(4);
             this.btnAllBooks.Name = "btnAllBooks";
             this.btnAllBooks.Size = new System.Drawing.Size(176, 33);
@@ -62,7 +62,7 @@
             // 
             // btnFavorites
             // 
-            this.btnFavorites.Location = new System.Drawing.Point(384, 92);
+            this.btnFavorites.Location = new System.Drawing.Point(200, 92);
             this.btnFavorites.Margin = new System.Windows.Forms.Padding(4);
             this.btnFavorites.Name = "btnFavorites";
             this.btnFavorites.Size = new System.Drawing.Size(176, 33);
@@ -78,16 +78,16 @@
             this.panelMainContent.Location = new System.Drawing.Point(16, 133);
             this.panelMainContent.Margin = new System.Windows.Forms.Padding(4);
             this.panelMainContent.Name = "panelMainContent";
-            this.panelMainContent.Size = new System.Drawing.Size(1040, 504);
+            this.panelMainContent.Size = new System.Drawing.Size(1112, 654);
             this.panelMainContent.TabIndex = 1;
             this.panelMainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainContent_Paint);
             // 
             // btnAdminPanel
             // 
-            this.btnAdminPanel.Location = new System.Drawing.Point(880, 92);
+            this.btnAdminPanel.Location = new System.Drawing.Point(958, 10);
             this.btnAdminPanel.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdminPanel.Name = "btnAdminPanel";
-            this.btnAdminPanel.Size = new System.Drawing.Size(176, 33);
+            this.btnAdminPanel.Size = new System.Drawing.Size(88, 33);
             this.btnAdminPanel.TabIndex = 2;
             this.btnAdminPanel.Text = "Admin Panel";
             this.btnAdminPanel.UseVisualStyleBackColor = true;
@@ -95,10 +95,10 @@
             // 
             // logOut
             // 
-            this.logOut.Location = new System.Drawing.Point(880, 10);
+            this.logOut.Location = new System.Drawing.Point(1054, 10);
             this.logOut.Margin = new System.Windows.Forms.Padding(4);
             this.logOut.Name = "logOut";
-            this.logOut.Size = new System.Drawing.Size(176, 33);
+            this.logOut.Size = new System.Drawing.Size(75, 33);
             this.logOut.TabIndex = 3;
             this.logOut.Text = "Çıkış Yap";
             this.logOut.UseVisualStyleBackColor = true;
@@ -107,9 +107,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::KutuphaneP.Properties.Resources.gelisim_banner;
-            this.pictureBox1.Location = new System.Drawing.Point(16, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(320, 91);
+            this.pictureBox1.Size = new System.Drawing.Size(182, 71);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -118,7 +118,8 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1072, 650);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(1152, 800);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.logOut);
             this.Controls.Add(this.btnAdminPanel);

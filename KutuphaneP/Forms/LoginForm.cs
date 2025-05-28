@@ -51,7 +51,7 @@ namespace KutuphaneP.Forms
                         UserSession.UserID = userId;
                         UserSession.Username = username;
 
-                        MessageBox.Show("Giriş başarılı!");                        this.Hide();
+                        //MessageBox.Show("Giriş başarılı!");                        this.Hide();
                         var mainForm = new MainForm();
                         mainForm.Show();
                     }

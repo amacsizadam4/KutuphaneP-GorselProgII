@@ -41,7 +41,7 @@ namespace KutuphaneP.Forms
         {
             if (!File.Exists(book.PDFPath))
             {
-                MessageBox.Show("PDF file not found:\n" + book.PDFPath);
+                MessageBox.Show("PDF dosyası bulunamadı:\n" + book.PDFPath);
                 this.Close();
                 return;
             }
@@ -61,7 +61,7 @@ namespace KutuphaneP.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to load PDF:\n" + ex.Message);
+                MessageBox.Show("PDF dosyası bulunamadı :\n" + ex.Message);
                 this.Close();
             }
         }

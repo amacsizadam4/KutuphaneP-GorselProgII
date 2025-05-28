@@ -150,5 +150,10 @@ namespace KutuphaneP.Forms
             }
 
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
