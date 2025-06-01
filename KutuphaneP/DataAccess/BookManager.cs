@@ -168,6 +168,87 @@ namespace KutuphaneP.DataAccess
             return (0, 1, 0);
         }
 
+        public static List<Book> GetBooksOwnedByUserByCategories(int userID, List<int> categoryIds)
+        {
+            var books = new List<Book>();
+            if (categoryIds == null || categoryIds.Count == 0)
+                return GetBooksOwnedByUser(userID);
+
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                string joinedIds = string.Join(",", categoryIds);
+                string query = $@"
+            SELECT DISTINCT b.BookID, b.Title, b.Author, b.PDFPath, b.CoverPath, b.TotalPages
+            FROM Books b
+            INNER JOIN UserLibrary ul ON b.BookID = ul.BookID
+            INNER JOIN book_categories bc ON b.BookID = bc.BookID
+            WHERE ul.UserID = @UserID AND bc.CategoryID IN ({joinedIds})";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            books.Add(new Book
+                            {
+                                BookID = Convert.ToInt32(reader["BookID"]),
+                                Title = reader["Title"].ToString(),
+                                Author = reader["Author"].ToString(),
+                                PDFPath = reader["PDFPath"].ToString(),
+                                CoverPath = reader["CoverPath"].ToString(),
+                                TotalPages = Convert.ToInt32(reader["TotalPages"])
+                            });
+                        }
+                    }
+                }
+            }
+
+            return books;
+        }
+
+
+        public static List<Book> GetFavoriteBooksByCategories(int userID, List<int> categoryIds)
+        {
+            var books = new List<Book>();
+            if (categoryIds == null || categoryIds.Count == 0)
+                return GetFavoriteBooks(userID);
+
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                string joinedIds = string.Join(",", categoryIds);
+                string query = $@"
+            SELECT DISTINCT b.BookID, b.Title, b.Author, b.PDFPath, b.CoverPath, b.TotalPages
+            FROM Books b
+            INNER JOIN UserLibrary ul ON b.BookID = ul.BookID
+            INNER JOIN book_categories bc ON b.BookID = bc.BookID
+            WHERE ul.UserID = @UserID AND ul.IsFavorite = 1 AND bc.CategoryID IN ({joinedIds})";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserID", userID);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            books.Add(new Book
+                            {
+                                BookID = Convert.ToInt32(reader["BookID"]),
+                                Title = reader["Title"].ToString(),
+                                Author = reader["Author"].ToString(),
+                                PDFPath = reader["PDFPath"].ToString(),
+                                CoverPath = reader["CoverPath"].ToString(),
+                                TotalPages = Convert.ToInt32(reader["TotalPages"])
+                            });
+                        }
+                    }
+                }
+            }
+
+            return books;
+        }
+
 
         public static int GetBookTotalPages(int bookID)
         {
@@ -204,6 +285,42 @@ namespace KutuphaneP.DataAccess
                 var result = cmd.ExecuteScalar();
                 return result != null && Convert.ToBoolean(result);
             }
+        }
+
+        public static List<Book> GetBooksByCategories(List<int> categoryIds)
+        {
+            var books = new List<Book>();
+            if (categoryIds == null || categoryIds.Count == 0)
+                return GetAllBooks();
+
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                string joinedIds = string.Join(",", categoryIds);
+                string query = $@"
+            SELECT DISTINCT b.BookID, b.Title, b.Author, b.PDFPath, b.CoverPath, b.TotalPages
+            FROM Books b
+            JOIN book_categories bc ON b.BookID = bc.BookID
+            WHERE bc.CategoryID IN ({joinedIds})";
+
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        books.Add(new Book
+                        {
+                            BookID = Convert.ToInt32(reader["BookID"]),
+                            Title = reader["Title"].ToString(),
+                            Author = reader["Author"].ToString(),
+                            PDFPath = reader["PDFPath"].ToString(),
+                            CoverPath = reader["CoverPath"].ToString(),
+                            TotalPages = Convert.ToInt32(reader["TotalPages"])
+                        });
+                    }
+                }
+            }
+
+            return books;
         }
 
         public static Panel CreateBookCard(Book book, bool owned, Action refreshCallback = null)
@@ -353,4 +470,6 @@ namespace KutuphaneP.DataAccess
             return bookPanel;
         }
     }
+
+
 }

@@ -126,7 +126,7 @@
             // picCoverPreview
             // 
             this.picCoverPreview.Location = new System.Drawing.Point(164, 236);
-            this.picCoverPreview.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picCoverPreview.Margin = new System.Windows.Forms.Padding(2);
             this.picCoverPreview.Name = "picCoverPreview";
             this.picCoverPreview.Size = new System.Drawing.Size(99, 124);
             this.picCoverPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -153,7 +153,7 @@
             // btnBrowseCover
             // 
             this.btnBrowseCover.Location = new System.Drawing.Point(270, 205);
-            this.btnBrowseCover.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnBrowseCover.Margin = new System.Windows.Forms.Padding(2);
             this.btnBrowseCover.Name = "btnBrowseCover";
             this.btnBrowseCover.Size = new System.Drawing.Size(100, 25);
             this.btnBrowseCover.TabIndex = 5;

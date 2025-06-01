@@ -78,7 +78,7 @@
             this.panelMainContent.Location = new System.Drawing.Point(16, 133);
             this.panelMainContent.Margin = new System.Windows.Forms.Padding(4);
             this.panelMainContent.Name = "panelMainContent";
-            this.panelMainContent.Size = new System.Drawing.Size(1112, 654);
+            this.panelMainContent.Size = new System.Drawing.Size(1123, 654);
             this.panelMainContent.TabIndex = 1;
             this.panelMainContent.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMainContent_Paint);
             // 
