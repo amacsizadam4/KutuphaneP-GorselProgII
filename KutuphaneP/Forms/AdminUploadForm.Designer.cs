@@ -42,6 +42,8 @@
             this.txtCoverPath = new System.Windows.Forms.TextBox();
             this.btnBrowseCover = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.checkedListBoxCategories = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.picCoverPreview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,7 +108,7 @@
             // 
             // btnUpload
             // 
-            this.btnUpload.Location = new System.Drawing.Point(324, 355);
+            this.btnUpload.Location = new System.Drawing.Point(323, 402);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(100, 36);
             this.btnUpload.TabIndex = 3;
@@ -119,13 +121,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(179, 50);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 13);
+            this.label4.Size = new System.Drawing.Size(69, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Admin Panel";
+            this.label4.Text = "Kitap Ekleme";
             // 
             // picCoverPreview
             // 
-            this.picCoverPreview.Location = new System.Drawing.Point(164, 236);
+            this.picCoverPreview.Location = new System.Drawing.Point(164, 234);
             this.picCoverPreview.Margin = new System.Windows.Forms.Padding(2);
             this.picCoverPreview.Name = "picCoverPreview";
             this.picCoverPreview.Size = new System.Drawing.Size(99, 124);
@@ -163,7 +165,7 @@
             // 
             // backButton
             // 
-            this.backButton.Location = new System.Drawing.Point(10, 355);
+            this.backButton.Location = new System.Drawing.Point(9, 402);
             this.backButton.Name = "backButton";
             this.backButton.Size = new System.Drawing.Size(99, 36);
             this.backButton.TabIndex = 6;
@@ -171,11 +173,31 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(71, 377);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Kategori:";
+            // 
+            // checkedListBoxCategories
+            // 
+            this.checkedListBoxCategories.CheckOnClick = true;
+            this.checkedListBoxCategories.FormattingEnabled = true;
+            this.checkedListBoxCategories.Location = new System.Drawing.Point(153, 363);
+            this.checkedListBoxCategories.Name = "checkedListBoxCategories";
+            this.checkedListBoxCategories.Size = new System.Drawing.Size(120, 94);
+            this.checkedListBoxCategories.TabIndex = 7;
+            this.checkedListBoxCategories.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxCategories_SelectedIndexChanged);
+            // 
             // AdminUploadForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 411);
+            this.ClientSize = new System.Drawing.Size(434, 484);
+            this.Controls.Add(this.checkedListBoxCategories);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.btnBrowseCover);
             this.Controls.Add(this.picCoverPreview);
@@ -183,6 +205,7 @@
             this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.txtCoverPath);
             this.Controls.Add(this.txtPdfPath);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.txtCover);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtAuthor);
@@ -194,6 +217,7 @@
             this.Name = "AdminUploadForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminUploadForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.AdminUploadForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picCoverPreview)).EndInit();
             this.ResumeLayout(false);
@@ -217,5 +241,7 @@
         private System.Windows.Forms.TextBox txtCoverPath;
         private System.Windows.Forms.Button btnBrowseCover;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckedListBox checkedListBoxCategories;
     }
 }

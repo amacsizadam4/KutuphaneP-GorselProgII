@@ -117,11 +117,35 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AdminDeleteBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminDeleteBook.Designer.cs">
+      <DependentUpon>AdminDeleteBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminDeleteCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminDeleteCategory.Designer.cs">
+      <DependentUpon>AdminDeleteCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminMainForm.Designer.cs">
+      <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AdminUploadForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AdminUploadForm.Designer.cs">
       <DependentUpon>AdminUploadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdminAddCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdminAddCategory.Designer.cs">
+      <DependentUpon>AdminAddCategory.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Controls\AllBooksControl.cs">
       <SubType>UserControl</SubType>
@@ -172,8 +196,20 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Session\UserSession.cs" />
+    <EmbeddedResource Include="Forms\AdminDeleteBook.resx">
+      <DependentUpon>AdminDeleteBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminDeleteCategory.resx">
+      <DependentUpon>AdminDeleteCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminMainForm.resx">
+      <DependentUpon>AdminMainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdminUploadForm.resx">
       <DependentUpon>AdminUploadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdminAddCategory.resx">
+      <DependentUpon>AdminAddCategory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Controls\AllBooksControl.resx">
       <DependentUpon>AllBooksControl.cs</DependentUpon>

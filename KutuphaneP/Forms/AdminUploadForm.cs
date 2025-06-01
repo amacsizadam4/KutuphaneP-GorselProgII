@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using LibraryManagementSystem.DataAccess;
@@ -19,12 +20,35 @@ namespace KutuphaneP.Forms
 
         private void AdminUploadForm_Load(object sender, EventArgs e)
         {
-            // Optional: clear fields on load
+            // Clear inputs
             txtTitle.Text = "";
             txtAuthor.Text = "";
             txtPdfPath.Text = "";
             txtCoverPath.Text = "";
             picCoverPreview.Image = null;
+
+            // Load categories into CheckedListBox
+            using (var conn = DatabaseHelper.GetConnection())
+            {
+                string query = "SELECT CategoryID, Name FROM categories";
+                using (var cmd = new MySqlCommand(query, conn))
+                using (var reader = cmd.ExecuteReader())
+                {
+                    var categoryList = new List<KeyValuePair<int, string>>();
+                    while (reader.Read())
+                    {
+                        categoryList.Add(new KeyValuePair<int, string>(
+                            Convert.ToInt32(reader["CategoryID"]),
+                            reader["Name"].ToString()));
+                    }
+
+                    checkedListBoxCategories.Items.Clear();
+                    foreach (var cat in categoryList)
+                        checkedListBoxCategories.Items.Add(cat);
+
+                    checkedListBoxCategories.DisplayMember = "Value";
+                }
+            }
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -39,7 +63,7 @@ namespace KutuphaneP.Forms
             }
         }
 
-        private void btnBrowseCover_Click(object sender, EventArgs e)
+        private void btnBrowseCover_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Image files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
@@ -84,8 +108,6 @@ namespace KutuphaneP.Forms
                     File.Copy(selectedCoverPath, newCoverPath, overwrite: true);
                 }
 
-
-
                 int totalPages = GetPdfPageCount(newPdfPath);
                 if (totalPages == 0)
                 {
@@ -96,7 +118,7 @@ namespace KutuphaneP.Forms
                 using (MySqlConnection conn = DatabaseHelper.GetConnection())
                 {
                     string query = @"INSERT INTO Books (Title, Author, PDFPath, CoverPath, TotalPages)
-                 VALUES (@Title, @Author, @PDFPath, @CoverPath, @TotalPages)";
+                                     VALUES (@Title, @Author, @PDFPath, @CoverPath, @TotalPages)";
                     MySqlCommand cmd = new MySqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@Title", title);
                     cmd.Parameters.AddWithValue("@Author", author);
@@ -107,7 +129,23 @@ namespace KutuphaneP.Forms
                     int result = cmd.ExecuteNonQuery();
                     if (result > 0)
                     {
-                        MessageBox.Show("Kitap başarıyla yüklendi!");
+                        long newBookId = cmd.LastInsertedId;
+
+                        foreach (var item in checkedListBoxCategories.CheckedItems)
+                        {
+                            if (item is KeyValuePair<int, string> selectedCategory)
+                            {
+                                string insertCategory = "INSERT INTO book_categories (BookID, CategoryID) VALUES (@BookID, @CategoryID)";
+                                using (var catCmd = new MySqlCommand(insertCategory, conn))
+                                {
+                                    catCmd.Parameters.AddWithValue("@BookID", newBookId);
+                                    catCmd.Parameters.AddWithValue("@CategoryID", selectedCategory.Key);
+                                    catCmd.ExecuteNonQuery();
+                                }
+                            }
+                        }
+
+                        MessageBox.Show("Kitap ve kategorileri başarıyla yüklendi!");
                         this.Close();
                     }
                     else
@@ -137,23 +175,19 @@ namespace KutuphaneP.Forms
             }
         }
 
-        private void btnBrowseCover_Click_1(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Image files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
-
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                selectedCoverPath = ofd.FileName;
-                txtCoverPath.Text = selectedCoverPath;
-                picCoverPreview.ImageLocation = selectedCoverPath;
-            }
-
-        }
-
         private void backButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void selectCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // not used anymore
+        }
+
+        private void checkedListBoxCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

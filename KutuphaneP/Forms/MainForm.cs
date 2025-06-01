@@ -50,7 +50,7 @@ namespace KutuphaneP.Forms
 
         private void btnAdminPanel_Click(object sender, EventArgs e)
         {
-            var adminPanel = new AdminUploadForm();
+            var adminPanel = new AdminMainForm();
             adminPanel.ShowDialog();
         }
 
